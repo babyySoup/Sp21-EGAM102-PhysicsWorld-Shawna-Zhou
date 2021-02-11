@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float MovementForce;
+    public float MovementForce, JumpForce;
 
+
+
+private void Update()
+{
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Rigidbody2D thisRigidbody;
+            thisRigidbody = GetComponent<Rigidbody2D>();
+            thisRigidbody.AddForce(JumpForce * Vector3.up, ForceMode2D.Impulse);
+        }
+}
 
 
 private void FixedUpdate()
